@@ -14,7 +14,7 @@ It aims to be simple and to overcome some of the limitations and pain of managin
 gem install 'grouper'
 ```
 
-You will need a yml file containg your AWS credentials in the form
+You will need a yml file containing your AWS credentials in the form
 
 ```
 access_key_id: ACCESS_KEY_ID
