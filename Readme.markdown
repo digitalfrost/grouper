@@ -63,7 +63,7 @@ When defining rules for echo requests the value for :ports should be in the form
 
 E.g.
 
-```
+```ruby
   #Allow echo requests from Wormly
   Rule.new(:icmp, 8..-1, wormly_ips, :in)
 ```

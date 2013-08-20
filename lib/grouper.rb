@@ -88,4 +88,12 @@ module Grouper
   class Rule < Struct.new(:protocol, :ports, :sources, :direction)
   end
 
+  #syntactic sugar to allow pinging a server
+  #allows Echo Request and Echo Reply
+  #
+  def ping(ips)
+    [Rule.new(:icmp, 8..-1, ips, :in), 
+     Rule.new(:icmp, 0..-1, ips, :out)]
+  end
+
 end
