@@ -57,6 +57,16 @@ apply_rules(intranet_server, rules)
 
 Now simply add the "intranet_server" security group to your EC2 instance(s)
 
+### Port range for echo requests
+
+When defining rules for echo requests the value for :ports should be in the format 0..-1 where 0 is the ICMP code type.
+
+E.g.
+
+```
+  #Allow echo requests from Wormly
+  Rule.new(:icmp, 8..-1, wormly_ips, :in)
+```
 
 ## Updating rules
 
