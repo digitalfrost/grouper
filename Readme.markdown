@@ -68,6 +68,18 @@ E.g.
   Rule.new(:icmp, 8..-1, wormly_ips, :in)
 ```
 
+### Creating Security Groups in a VPC
+
+Pass the VPC where you want to create / modify a security group in to te find_or_create method instead on an ec2 instance
+
+E.g.
+
+```ruby
+  ec2 = AWS::EC2.new(:ec2_endpoint => "ec2.eu-west-1.amazonaws.com")
+  vpc = ec2.vpcs.first
+  intranet_server = find_or_create(vpc, 'intranet_server')
+```
+
 ## Updating rules
 
 Make changes to your grouper script and rerun it - rules that are no longer defined in the rules array passed to apply_rules() will be be removed.
